@@ -15,4 +15,19 @@ export class EmployeeService {
   getEmployeesList() :Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(`${this.baseurl}`);
   }
+
+  createEmployee(employee: Employee): Observable<object>{
+    return this.httpClient.post(`${this.baseurl}`,employee)
+
+  }
+  getEmployeeById(id: number): Observable<Employee>{
+    return this.httpClient.get<Employee>(`${this.baseurl}/${id}`);
+  }
+
+  updateEmployee(id: number, employee: Employee): Observable<Object>{
+    return this.httpClient.put(`${this.baseurl}/${id}`, employee);
+  }
+  deleteEmployee(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseurl}/${id}`);
+  }
 }
