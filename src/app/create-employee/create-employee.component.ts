@@ -18,8 +18,9 @@ export class CreateEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
     saveEmployee(){
+      console.log("berfore save : ",this.employee)
       this.employeeService.createEmployee(this.employee).subscribe( data =>{
-        console.log(data);
+        console.log("berfore save : ",data);
         this.goToEmployeeList();
       },
       error => console.log(error));
@@ -31,7 +32,7 @@ export class CreateEmployeeComponent implements OnInit {
 
     }
 onSubmit(){
-  console.log(this.employee)
+  console.log("on submit : ",this.employee)
   this.saveEmployee(); 
 
 }
